@@ -1,6 +1,4 @@
-تم تعديل أوقات العمل في كل مكان داخل الصفحة إلى:
-يومياً ٦ صباحاً – ٦ مساءً.
-هذا هو الملف كاملاً بعد التعديل:
+هذا هو ملف index.html جاهز للنسخ واللصق في GitHub (أوقات العمل كلها ٦ صباحاً إلى ٦ مساءً):
 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -36,7 +34,6 @@
     body {
       background: radial-gradient(circle at top, #111827, #020617);
     }
-    /* تحسين سكرول ناعم */
     html {
       scroll-behavior: smooth;
     }
@@ -476,4 +473,67 @@
     }
 
     function scrollToSection(id) {
-      const el = document
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (navOpen) toggleMobileNav();
+    }
+
+    // رقم الملحمة في واتساب
+    function openButcherWhatsApp() {
+      const phone = "966538779110"; // 0538779110 بصيغة دولية
+      const text = encodeURIComponent("السلام عليكم، أود الاستفسار عن لحوم وعروض ملحمة نصف هبرة.");
+      const url = "https://wa.me/" + phone + "?text=" + text;
+      window.open(url, "_blank");
+    }
+
+    // ربط النموذج بالواتساب (فعلي)
+    function handleContactSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value.trim();
+      const msg = document.getElementById('message').value.trim();
+
+      const summary =
+        "طلب جديد من موقع ملحمة نصف هبرة:\n" +
+        "الاسم: " + (name || "-") + "\n" +
+        "الجوال: " + (phone || "-") + "\n" +
+        "نوع الطلب: " + (service || "-") + "\n" +
+        "التفاصيل: " + (msg || "-");
+
+      const phoneWA = "966538779110"; // رقم واتساب الملحمة بصيغة دولية
+      const waUrl = "https://wa.me/" + phoneWA + "?text=" + encodeURIComponent(summary);
+
+      window.open(waUrl, "_blank");
+
+      document.getElementById('formStatus').textContent =
+        "تم فتح واتساب مع تفاصيل الطلب، تأكد من الضغط على إرسال.";
+    }
+
+    // GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".hero-animate", {
+      y: 40,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+
+    gsap.utils.toArray(".section-animate").forEach((sec, i) => {
+      gsap.from(sec, {
+        scrollTrigger: {
+          trigger: sec,
+          start: "top 80%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        delay: i * 0.05,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
