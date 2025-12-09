@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ملحمة نصف هبرة | لحوم طازجة يومياً</title>
+  <title>لوحة خدمات ملحمة نصف هبرة</title>
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -15,15 +15,11 @@
             sans: ['system-ui', 'Tahoma', 'sans-serif'],
           },
           colors: {
-            primary: '#b91c1c',
-            primarySoft: '#fecaca',
-            accent: '#f97316',
             darkBg: '#020617',
+            primary: '#b91c1c',
+            accent: '#f97316',
           }
         }
-      },
-      corePlugins: {
-        preflight: true,
       }
     };
   </script>
@@ -37,515 +33,239 @@
     }
   </style>
 </head>
-<body class="font-sans text-slate-50">
+<body class="font-sans text-slate-50 min-h-screen flex flex-col">
 
-  <!-- ============ NAVBAR ============ -->
-  <header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-      <!-- Brand -->
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 via-red-700 to-amber-400 flex items-center justify-center text-lg font-bold shadow-lg shadow-red-900/50">
-          ½
-        </div>
+  <!-- ========= MAIN BLOCK ========= -->
+  <main class="flex-1 flex items-center justify-center px-4 py-6">
+    <div class="max-w-6xl w-full bg-slate-950/90 border border-slate-700/80 rounded-3xl shadow-2xl overflow-hidden">
+      <!-- عنوان علوي بسيط -->
+      <header class="px-6 py-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <div class="text-sm font-semibold tracking-wide">ملحمة نصف هبرة</div>
-          <div class="text-[0.7rem] text-slate-300">لحوم طازجة – أحد المسارحة</div>
-        </div>
-      </div>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#hero" class="hover:text-primarySoft transition">الرئيسية</a>
-        <a href="#products" class="hover:text-primarySoft transition">المنتجات</a>
-        <a href="#location" class="hover:text-primarySoft transition">الموقع</a>
-        <a href="#contact" class="hover:text-primarySoft transition">تواصل</a>
-      </nav>
-
-      <!-- Call To Action: رقم الملحمة -->
-      <div class="hidden md:flex items-center gap-3 text-xs">
-        <div class="text-slate-300">
-          رقم الملحمة:
-          <a href="tel:0538779110" class="font-semibold text-primarySoft">
-            0538779110
-          </a>
-        </div>
-        <button
-          onclick="openButcherWhatsApp()"
-          class="flex items-center gap-2 bg-[#25d366] text-black text-xs font-semibold px-3 py-1.5 rounded-full shadow-md shadow-emerald-500/40 hover:shadow-lg hover:scale-[1.02] transition">
-          واتساب الملحمة
-        </button>
-      </div>
-
-      <!-- Mobile menu button -->
-      <button id="navToggle" class="md:hidden inline-flex flex-col gap-[3px]" aria-label="Toggle menu">
-        <span class="w-5 h-[2px] bg-slate-100 rounded-full"></span>
-        <span class="w-5 h-[2px] bg-slate-100 rounded-full"></span>
-        <span class="w-5 h-[2px] bg-slate-100 rounded-full"></span>
-      </button>
-    </div>
-
-    <!-- Mobile Nav -->
-    <nav id="mobileNav" class="md:hidden max-h-0 overflow-hidden transition-all duration-200 bg-black/95 border-t border-white/10">
-      <div class="px-4 py-3 flex flex-col gap-2 text-sm">
-        <a href="#hero" class="py-1" onclick="toggleMobileNav()">الرئيسية</a>
-        <a href="#products" class="py-1" onclick="toggleMobileNav()">المنتجات</a>
-        <a href="#location" class="py-1" onclick="toggleMobileNav()">الموقع</a>
-        <a href="#contact" class="py-1" onclick="toggleMobileNav()">تواصل</a>
-        <div class="pt-2 mt-2 border-t border-white/10 text-xs text-slate-300">
-          رقم الملحمة:
-          <a href="tel:0538779110" class="font-semibold text-primarySoft">0538779110</a>
-        </div>
-        <button
-          onclick="openButcherWhatsApp()"
-          class="mt-2 flex items-center justify-center gap-2 bg-[#25d366] text-black text-xs font-semibold px-3 py-1.5 rounded-full shadow-md shadow-emerald-500/40">
-          واتساب الملحمة
-        </button>
-      </div>
-    </nav>
-  </header>
-
-  <!-- ============ MAIN ============ -->
-  <main class="max-w-6xl mx-auto px-4">
-
-    <!-- HERO -->
-    <section id="hero" class="py-10 md:py-14 hero-animate">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <!-- Text -->
-        <div class="space-y-5">
-          <div class="inline-flex items-center gap-2 rounded-full border border-amber-400/50 bg-amber-500/10 px-3 py-1 text-[0.7rem] tracking-[0.3em] uppercase text-amber-200">
-            لحوم طازجة
-            <span class="px-2 py-0.5 rounded-full border border-red-400/60 bg-red-500/10 text-[0.65rem] text-red-200">
-              ذبح يومي • تجهيز مناسبات
-            </span>
-          </div>
-
-          <h1 class="text-3xl md:text-4xl font-extrabold leading-snug">
-            طعم <span class="text-amber-300">اللحم الحقيقي</span> يبدأ من
-            <span class="bg-gradient-to-l from-amber-400 via-red-400 to-amber-200 bg-clip-text text-transparent">
-              نصف هَبْرة
-            </span>
+          <h1 class="text-xl md:text-2xl font-bold">
+            لوحة ملحمة نصف هَبْرة – أحد المسارحة
           </h1>
-
-          <p class="text-sm md:text-[0.9rem] text-slate-200 max-w-xl">
-            ملحمة متخصصة في اختيار وذبح وتجهيز أجود أنواع اللحوم الحمراء،
-            مع تقطيع محترف حسب طلبك، وتغليف جاهز للثلاجة أو التجميد،
-            على طريق الملك عبدالله – حي العز، أحد المسارحة.
-          </p>
-
-          <div class="flex flex-wrap items-center gap-4 text-[0.75rem] text-slate-300">
-            <div>
-              <span class="font-semibold text-amber-300">أوقات العمل:</span>
-              يومياً ٦ صباحاً – ٦ مساءً
-            </div>
-            <div>
-              <span class="font-semibold text-amber-300">الخدمة:</span>
-              محلي • سفري • تجهيز مناسبات
-            </div>
-          </div>
-
-          <div class="text-[0.75rem] text-slate-200">
-            <span class="font-semibold text-amber-300">نوع اللحم:</span>
-            خروف بلدي • عجل بلدي • حاشي بلدي
-          </div>
-
-          <div class="flex flex-wrap items-center gap-3">
-            <button
-              onclick="scrollToSection('products')"
-              class="btn-main inline-flex items-center gap-2 rounded-full bg-gradient-to-l from-red-700 via-red-500 to-amber-500 px-5 py-2.5 text-xs md:text-sm font-semibold shadow-lg shadow-red-900/50 hover:shadow-red-600/60 hover:scale-[1.02] transition">
-              استعرض قائمة اللحوم
-            </button>
-            <button
-              onclick="scrollToSection('location')"
-              class="inline-flex items-center gap-2 rounded-full border border-slate-500/80 px-4 py-2 text-xs md:text-sm text-slate-100 hover:bg-slate-900/60 transition">
-              موقع الملحمة على الخريطة
-            </button>
-          </div>
-
-          <p class="text-[0.75rem] text-slate-400">
-            اتصل على رقم الملحمة أو أرسل تفاصيل التقطيع على الواتساب، يتم تجهيز الطلب قبل حضورك لتوفير الوقت.
+          <p class="text-xs md:text-sm text-slate-300">
+            إدارة الشركات المتعاقدة • إحصائيات الطلبات • تواصل سريع
           </p>
         </div>
+        <button
+          onclick="openPortfolioModal()"
+          class="text-xs md:text-sm px-4 py-2 rounded-full border border-amber-400/70 text-amber-200 hover:bg-amber-500/10 transition">
+          عرض أعمال المبرمج
+        </button>
+      </header>
 
-        <!-- Visual card -->
-        <div class="relative">
-          <div class="relative rounded-3xl border border-red-500/40 bg-gradient-to-br from-red-950 via-black to-slate-950 p-4 shadow-2xl shadow-red-900/60 overflow-hidden">
-            <div class="flex items-center justify-between mb-3">
-              <div class="text-sm font-semibold">لوحة جودة اللحوم</div>
-              <div class="text-[0.7rem] px-2 py-0.5 rounded-full border border-amber-300/60 text-amber-100 bg-black/40">
-                مختومة صحياً
+      <!-- بلوك واحد مقسوم (Flexbox) -->
+      <section class="p-4 md:p-6">
+        <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+          <!-- يسار: الشركات ولوحة مختصرة -->
+          <div class="flex-1 min-w-[260px]">
+            <div class="bg-slate-900/80 border border-slate-700/80 rounded-2xl p-4 h-full flex flex-col">
+              <h2 class="text-sm md:text-base font-semibold mb-2">
+                الشركات المتعاقدة ولوحة الطلبات
+              </h2>
+
+              <!-- هنا تضع أي محتوى للشركات / الباقات -->
+              <div class="flex-1 overflow-y-auto pr-1 space-y-3 text-xs md:text-sm">
+                <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700/70">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-semibold text-slate-100">شركة مثال التجارية</span>
+                    <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-400/50">
+                      فعّالة
+                    </span>
+                  </div>
+                  <p class="text-slate-300 text-[0.75rem]">
+                    تعاقد لتوريد لحم بلدي مشكل وذبح حسب طلب فروع الشركة.
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700/70">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-semibold text-slate-100">بوكس الولاء – ١٩٩ ريال</span>
+                    <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-200 border border-sky-400/60">
+                      توصيل مجاني
+                    </span>
+                  </div>
+                  <p class="text-slate-300 text-[0.75rem]">
+                    ريش + مفروم + مضغوط + مقلقل، مع إمكانية تعديل المكونات حسب رغبة العميل،
+                    <span class="font-semibold text-emerald-300">والتوصيل مجاني داخل أحد المسارحة</span>.
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700/70">
+                  <h3 class="font-semibold text-slate-100 mb-1 text-sm">
+                    نوع اللحم المعتمد
+                  </h3>
+                  <p class="text-[0.8rem] text-slate-300">
+                    لحم بلدي ١٠٠٪:
+                    <span class="font-semibold text-amber-300">
+                      خروف بلدي – حاشي بلدي – عجل بلدي
+                    </span>
+                    (لا يتم استخدام أي نوع آخر).
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div class="flex flex-wrap gap-2 text-[0.7rem] mb-3">
-              <span class="px-2 py-1 rounded-full border border-white/10 bg-black/40">
-                نعيمي طازج
-              </span>
-              <span class="px-2 py-1 rounded-full border border-white/10 bg-black/40">
-                تيس بلدي
-              </span>
-              <span class="px-2 py-1 rounded-full border border-white/10 bg-black/40">
-                عجول مبردة
-              </span>
-              <span class="px-2 py-1 rounded-full border border-white/10 bg-black/40">
-                ريش للمشاوي
-              </span>
+              <!-- ملاحظة صغيرة أسفل البلوك الأيسر -->
+              <p class="mt-3 text-[0.7rem] text-slate-400">
+                يمكن إضافة أو تعديل الشركات والحملات من نفس هذه اللوحة دون الحاجة للتنقل بين صفحات كثيرة.
+              </p>
             </div>
+          </div>
 
-            <div class="relative h-28 rounded-2xl overflow-hidden border border-red-500/60 bg-gradient-to-r from-red-900 via-red-600 to-amber-500">
-              <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(0,0,0,0.4),transparent),radial-gradient(circle_at_80%_80%,rgba(0,0,0,0.6),transparent)]"></div>
-              <div class="absolute inset-2 flex flex-col justify-between text-[0.7rem]">
+          <!-- يمين: الإحصائيات + التواصل + التغييرات الأساسية -->
+          <div class="flex-1 min-w-[260px] flex flex-col gap-4">
+            <!-- كرت الإحصائيات والتواصل -->
+            <div class="bg-slate-900/80 border border-slate-700/80 rounded-2xl p-4">
+              <h2 class="text-sm md:text-base font-semibold mb-2">
+                لمحة سريعة عن الأداء والتواصل
+              </h2>
+
+              <div class="grid grid-cols-2 gap-3 text-[0.75rem] md:text-sm mb-3">
+                <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700/70">
+                  <div class="text-slate-400 text-[0.7rem] mb-1">متوسط تجهيز الطلب</div>
+                  <div class="text-slate-100 font-semibold">من ١٠ إلى ٢٠ دقيقة</div>
+                  <div class="text-emerald-300 text-[0.7rem]">حسب الازدحام وعدد الذبائح</div>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700/70">
+                  <div class="text-slate-400 text-[0.7rem] mb-1">تقييم الزبائن التقديري</div>
+                  <div class="text-yellow-300 font-semibold text-sm">٤٫٨ / ٥ ★</div>
+                  <div class="text-slate-300 text-[0.7rem]">جودة اللحم والخدمة</div>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-2 text-[0.8rem]">
                 <div class="flex items-center justify-between">
-                  <span class="px-2 py-0.5 rounded-full bg-black/40 border border-white/40 text-amber-100">
-                    درجة الطزاجة: <span class="font-bold text-yellow-200">+٩٦٪</span>
-                  </span>
-                  <span class="px-2 py-0.5 rounded-full bg-black/40 border border-white/40 text-red-100">
-                    ذبح على الطريقة الشرعية
-                  </span>
+                  <span class="text-slate-300">رقم الملحمة (للطلبات):</span>
+                  <a href="tel:0538779110" class="font-semibold text-amber-300">
+                    0538779110
+                  </a>
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded-full bg-black/40 border border-white/40 text-slate-100">
-                    تجهيز مناسبات
-                  </span>
-                  <span class="px-2 py-0.5 rounded-full bg-black/40 border border-white/40 text-slate-100">
-                    تقطيع حسب الطلب
-                  </span>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-300">واتساب الملحمة:</span>
+                  <button
+                    onclick="openWhatsApp()"
+                    class="px-3 py-1.5 rounded-full bg-[#25d366] text-black text-xs font-semibold">
+                    فتح واتساب
+                  </button>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-300">أوقات العمل:</span>
+                  <span class="text-slate-100">يومياً ٦ صباحاً – ٦ مساءً</span>
                 </div>
               </div>
-              <div class="absolute -bottom-2 left-2 w-36 rounded-2xl bg-slate-900/95 border border-slate-500/70 px-3 py-2 text-[0.7rem] shadow-xl shadow-slate-900/80">
-                <div class="flex items-center justify-between mb-1">
-                  <span class="font-semibold text-slate-100">متوسط تجهيز الطلب</span>
-                  <span class="text-emerald-400 text-[0.65rem]">سريع</span>
-                </div>
-                <p class="text-slate-300">
-                  من ١٠ إلى ٢٠ دقيقة حسب الازدحام وعدد الذبائح.
-                </p>
-              </div>
-              <div class="absolute bottom-2 right-3 w-16 h-16 rounded-full border-2 border-amber-200/90 bg-black/70 flex flex-col items-center justify-center text-[0.7rem] shadow-[0_0_25px_rgba(250,250,200,0.4)]">
-                <span class="font-bold text-yellow-300 text-sm">٤٫٨★</span>
-                <span class="text-[0.6rem] text-slate-200">تقييم جوجل</span>
-              </div>
+            </div>
+
+            <!-- كرت التغييرات الأساسية -->
+            <div class="bg-slate-900/80 border border-amber-400/60 rounded-2xl p-4 text-[0.8rem] md:text-sm">
+              <h2 class="font-semibold mb-2 text-amber-200">
+                التغييرات الأساسية في النسخة الجديدة
+              </h2>
+              <ul class="list-disc pr-4 space-y-1 text-slate-200">
+                <li>
+                  كل المحتوى الآن داخل <span class="font-semibold">بلوك واحد رئيسي</span> مقسوم بوضوح:
+                  يسار للشركات ولوحة الطلبات، ويمين للإحصائيات والتواصل.
+                </li>
+                <li>
+                  لا توجد سكاشن كثيرة تحت بعض؛ <span class="font-semibold">طول الصفحة أقصر بكثير</span> ومناسب
+                  للعرض الاحترافي على اللابتوب والشاشات المتوسطة.
+                </li>
+                <li>
+                  في حال زاد المحتوى في جانب الشركات، يوجد <span class="font-semibold">سكرول داخلي صغير</span>
+                  داخل البلوك الأيسر، بينما الصفحة نفسها لا تحتاج نزول طويل.
+                </li>
+                <li>
+                  تم توحيد نوع اللحم المعروض إلى:
+                  <span class="font-semibold text-amber-300">
+                    خروف بلدي – حاشي بلدي – عجل بلدي
+                  </span>
+                  مع حذف أي ذكر لأنواع أخرى خاطئة.
+                </li>
+                <li>
+                  <span class="font-semibold">بوكس الولاء</span> أصبح موضحاً بأنه يشمل
+                  ريش + مفروم + مضغوط + مقلقل مع خيار التعديل، و
+                  <span class="font-semibold text-emerald-300">توصيل مجاني داخل أحد المسارحة</span>.
+                </li>
+                <li>
+                  تحديث حقوق المبرمج في الفوتر للفترة
+                  <span class="font-semibold">2025–2026</span> مع بيانات الاتصال الكاملة.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="py-10 border-t border-white/5 section-animate">
-      <div class="text-center mb-6">
-        <div class="text-[0.7rem] tracking-[0.3em] uppercase text-amber-300 mb-1">قائمة المنتجات</div>
-        <h2 class="text-xl md:text-2xl font-bold mb-2">أشهر طلبات ملحمة نصف هبرة</h2>
-        <p class="text-[0.8rem] md:text-sm text-slate-300 max-w-xl mx-auto">
-          هذه قائمة نموذجية قابلة للتعديل حسب الأسعار الحقيقية عندكم، المهم أن الهيكل جاهز للتحديث بسرعة.
-        </p>
-      </div>
-
-      <div class="grid gap-4 md:grid-cols-3 section-animate">
-        <!-- Product 1 -->
-        <article class="bg-slate-950/80 border border-slate-700/80 rounded-2xl p-4 flex flex-col justify-between shadow-lg shadow-black/50">
-          <div>
-            <h3 class="text-sm font-semibold mb-1">لحم بلدي مشكل – بالوزن أو الذبيحة</h3>
-            <p class="text-xs text-slate-300">
-              السعر (مثال): <span class="font-semibold text-amber-300">١٠٠ ر.س / كجم</span>
-            </p>
-            <p class="text-[0.7rem] text-slate-400 mt-1">
-              لحم بلدي مشكل جاهز للتقطيع حسب رغبتك، مناسب للطبخ اليومي والمناسبات.
-            </p>
-            <ul class="mt-2 text-[0.7rem] text-slate-300 list-disc list-inside space-y-0.5">
-              <li>ربع ذبيحة: ٤٠٠ ريال</li>
-              <li>نص ذبيحة: ٧٠٠ ريال</li>
-              <li>ذبيحة كاملة: من ١١٠٠ إلى ١٤٠٠ ريال</li>
-            </ul>
-          </div>
-          <div class="flex items-center justify-between mt-3 text-[0.7rem] text-slate-300">
-            <span>تقطيع: مكعبات / شرائح / حسب الطلب</span>
-            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-400/60 text-emerald-200">
-              جاهز للطبخ
-            </span>
-          </div>
-        </article>
-
-        <!-- Product 2 -->
-        <article class="bg-slate-950/80 border border-slate-700/80 rounded-2xl p-4 flex flex-col justify-between shadow-lg shadow-black/50">
-          <div>
-            <h3 class="text-sm font-semibold mb-1">ريش نعيمي – مشاوي خاصة</h3>
-            <p class="text-xs text-slate-300">
-              السعر (مثال): <span class="font-semibold text-amber-300">٨٥ ر.س / كجم</span>
-            </p>
-            <p class="text-[0.7rem] text-slate-400 mt-1">
-              جاهز للتتبيل أو الشوي المباشر، مع تقطيع ريش ناعم مناسب للجلسات.
-            </p>
-          </div>
-          <div class="flex items-center justify-between mt-3 text-[0.7rem] text-slate-300">
-            <span>تتبيل: حسب طلب العميل</span>
-            <span class="px-2 py-0.5 rounded-full bg-red-500/10 border border-red-400/60 text-red-200">
-              مثالي للمشاوي
-            </span>
-          </div>
-        </article>
-
-        <!-- Product 3 -->
-        <article class="bg-slate-950/80 border border-slate-700/80 rounded-2xl p-4 flex flex-col justify-between shadow-lg shadow-black/50">
-          <div>
-            <h3 class="text-sm font-semibold mb-1">مفروم لحم خاص – نسبة دهن متوازنة</h3>
-            <p class="text-xs text-slate-300">
-              السعر (مثال): <span class="font-semibold text-amber-300">٤٥ ر.س / كجم</span>
-            </p>
-            <p class="text-[0.7rem] text-slate-400 mt-1">
-              مناسب للبرجر، الكباب، الكفتة، مع إمكانية اختيار نسبة الدهن حسب ذوقك.
-            </p>
-            <p class="text-[0.7rem] text-slate-200 mt-2">
-              بوكس الولاء <span class="font-semibold text-amber-300">١٩٩ ريال</span> يتكون من ريش ومفروم ومضغوط ومقلقل
-              وتقدر تغير حسب رغبتك.
-            </p>
-          </div>
-          <div class="flex items-center justify-between mt-3 text-[0.7rem] text-slate-300">
-            <span>تجهيز حسب الوصفة</span>
-            <span class="px-2 py-0.5 rounded-full bg-sky-500/10 border border-sky-400/60 text-sky-200">
-              شيف الملحمة
-            </span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- LOCATION -->
-    <section id="location" class="py-10 border-t border-white/5 section-animate">
-      <div class="text-center mb-6">
-        <div class="text-[0.7rem] tracking-[0.3em] uppercase text-amber-300 mb-1">الموقع</div>
-        <h2 class="text-xl md:text-2xl font-bold mb-2">موقع ملحمة نصف هبرة على الخرائط</h2>
-        <p class="text-[0.8rem] md:text-sm text-slate-300 max-w-xl mx-auto">
-          العنوان حسب بيانات Google Maps، ويمكنك ضبطه لاحقاً بدقة من حسابك في الخرائط.
-        </p>
-      </div>
-
-      <div class="grid gap-6 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-start">
-        <div class="rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl shadow-black/70">
-          <iframe
-            src="https://www.google.com/maps?q=PW6X+J5P+%D9%85%D9%84%D8%AD%D9%85%D8%A9+%D9%86%D8%B5%D9%81+%D9%87%D8%A8%D8%B1%D8%A9,+%D8%B7%D8%B1%D9%8A%D9%82+%D8%A7%D9%84%D9%85%D9%84%D9%83+%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%D9%87,+%D8%A7%D9%84%D8%B9%D8%B2,+%D8%A3%D8%AD%D8%AF+%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B1%D8%AD%D8%A9&output=embed"
-            width="100%" height="320" style="border:0;" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-        <div class="bg-slate-950/80 border border-slate-700/80 rounded-2xl p-4 text-[0.8rem] space-y-2 shadow-lg shadow-black/60">
-          <div class="flex gap-2">
-            <span class="w-16 text-slate-400">الاسم:</span>
-            <span class="text-slate-100">ملحمة نصف هبرة</span>
-          </div>
-          <div class="flex gap-2">
-            <span class="w-16 text-slate-400">العنوان:</span>
-            <span class="text-slate-100">
-              طريق الملك عبدالله، حي العز، أحد المسارحة ٨٦٢١١ – المملكة العربية السعودية.
-            </span>
-          </div>
-          <div class="flex gap-2">
-            <span class="w-16 text-slate-400">الهاتف:</span>
-            <span class="text-slate-100">
-              رقم الملحمة الرسمي:
-              <a href="tel:0538779110" class="font-semibold text-amber-300">
-                0538779110
-              </a>
-            </span>
-          </div>
-          <div class="flex gap-2">
-            <span class="w-16 text-slate-400">رابط ماب:</span>
-            <span class="text-slate-100">
-              <a href="https://maps.app.goo.gl/fZDbbgQo9uteeE2M7?g_st=iw" target="_blank" class="text-amber-300 underline-offset-2 hover:underline">
-                فتح في خرائط جوجل
-              </a>
-            </span>
-          </div>
-          <div class="flex flex-wrap gap-2 pt-2 text-[0.7rem]">
-            <span class="px-2 py-0.5 rounded-full border border-sky-400/70 text-sky-200">
-              مواقف متاحة
-            </span>
-            <span class="px-2 py-0.5 rounded-full border border-sky-400/70 text-sky-200">
-              وصول سهل من الطريق الرئيسي
-            </span>
-            <span class="px-2 py-0.5 rounded-full border border-sky-400/70 text-sky-200">
-              مناسب للعائلات
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="py-10 border-t border-white/5 section-animate">
-      <div class="text-center mb-6">
-        <div class="text-[0.7rem] tracking-[0.3em] uppercase text-amber-300 mb-1">تواصل معنا</div>
-        <h2 class="text-xl md:text-2xl font-bold mb-2">حجز طلب أو استفسار سريع</h2>
-        <p class="text-[0.8rem] md:text-sm text-slate-300 max-w-xl mx-auto">
-          هذا النموذج يفتح لك واتساب الملحمة مباشرة مع تفاصيل الطلب، فقط عبّ البيانات واضغط على زر تجهيز الطلب.
-        </p>
-      </div>
-
-      <div class="grid gap-6 md:grid-cols-2">
-        <!-- Form -->
-        <div class="bg-slate-950/80 border border-slate-700/80 rounded-2xl p-4 shadow-lg shadow-black/60">
-          <form onsubmit="handleContactSubmit(event)" class="space-y-3 text-[0.8rem]">
-            <div class="grid md:grid-cols-2 gap-3">
-              <div>
-                <label for="name" class="block text-slate-200 mb-1">الاسم الكامل</label>
-                <input id="name" type="text"
-                       class="w-full rounded-xl border border-slate-600 bg-slate-950/80 px-3 py-2 text-xs focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400" required>
-              </div>
-              <div>
-                <label for="phone" class="block text-slate-200 mb-1">رقم الجوال</label>
-                <input id="phone" type="tel"
-                       class="w-full rounded-xl border border-slate-600 bg-slate-950/80 px-3 py-2 text-xs focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400" required>
-              </div>
-            </div>
-            <div>
-              <label for="service" class="block text-slate-200 mb-1">نوع الطلب</label>
-              <input id="service" type="text"
-                     placeholder="ذبيحة كاملة / مشاوي / مفروم / مناسبة..."
-                     class="w-full rounded-xl border border-slate-600 bg-slate-950/80 px-3 py-2 text-xs focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400">
-            </div>
-            <div>
-              <label for="message" class="block text-slate-200 mb-1">تفاصيل إضافية</label>
-              <textarea id="message" rows="3"
-                        placeholder="اذكر تفاصيل التقطيع أو الكمية أو موعد الاستلام..."
-                        class="w-full rounded-xl border border-slate-600 bg-slate-950/80 px-3 py-2 text-xs focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"></textarea>
-            </div>
-
-            <button type="submit"
-                    class="inline-flex items-center gap-2 rounded-full bg-gradient-to-l from-red-700 via-red-500 to-amber-500 px-5 py-2 text-xs md:text-sm font-semibold shadow-lg shadow-red-900/50 hover:shadow-red-600/60 hover:scale-[1.02] transition">
-              تجهيز الطلب وإرساله على الواتساب
-            </button>
-
-            <div id="formStatus" class="text-[0.75rem] text-emerald-300 mt-1"></div>
-          </form>
-        </div>
-
-        <!-- Contact info -->
-        <div class="bg-slate-950/80 border border-slate-700/80 rounded-2xl p-4 text-[0.8rem] space-y-3 shadow-lg shadow-black/60">
-          <div class="flex items-center justify-between">
-            <span class="text-slate-300">رقم الملحمة (للطلبات):</span>
-            <a href="tel:0538779110" class="font-semibold text-amber-300">
-              0538779110
-            </a>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-slate-300">واتساب الملحمة:</span>
-            <button
-              onclick="openButcherWhatsApp()"
-              class="px-3 py-1.5 rounded-full bg-[#25d366] text-black text-xs font-semibold">
-              فتح واتساب
-            </button>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-slate-300">أوقات العمل:</span>
-            <span class="text-slate-100">يومياً ٦ صباحاً – ٦ مساءً</span>
-          </div>
-          <p class="text-[0.75rem] text-slate-400">
-            ملاحظة: رقم المبرمج وحقوقه موجودة في أسفل الموقع فقط، لضمان خصوصية العميل.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="mt-8 border-t border-slate-800 bg-black/90">
-    <div class="max-w-6xl mx-auto px-4 py-4 text-[0.75rem] text-slate-400 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+  <!-- ========= FOOTER ========= -->
+  <footer class="border-t border-slate-800 bg-black/90">
+    <div class="max-w-6xl mx-auto px-4 py-4 text-[0.75rem] text-slate-300 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
       <div>
-        جميع الحقوق محفوظة لملحمة نصف هبرة ©
-        <span id="year"></span>
+        حقوق المبرمج محفوظة 2025–2026
       </div>
-      <div class="text-[0.7rem] text-slate-500">
-        البرمجة والتطوير (حقوق المبرمج):  
-        <span class="font-semibold text-slate-200">Ahmed Jafari – M5mOsH</span>  
-        – جوال المبرمج:
-        <a href="tel:+966507190799" class="text-amber-300">
-          +966507190799
-        </a>
+      <div class="space-y-1 text-[0.75rem]">
+        <div><span class="font-semibold">Ahmed jafari</span> | <span class="font-semibold">M5mOsH</span></div>
+        <div>رقم هاتف ☎️: <span dir="ltr">0173266999</span></div>
+        <div>جوال📱: <span dir="ltr">0507190799</span></div>
+        <div>جوال آخر📱: <span dir="ltr">0502479994</span></div>
       </div>
     </div>
   </footer>
 
-  <!-- GSAP + ScrollTrigger للحركات -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- ========= MODAL: أعمال المبرمج ========= -->
+  <div id="portfolioModal"
+       class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-200 z-50">
+    <div class="max-w-lg w-full mx-4 bg-slate-950 border border-amber-400/70 rounded-2xl shadow-2xl p-4 md:p-5 text-[0.8rem] md:text-sm">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-sm md:text-base font-bold text-amber-200">
+          بعض الأعمال والأنظمة التي تم تنفيذها
+        </h2>
+        <button onclick="closePortfolioModal()" class="text-slate-400 hover:text-slate-100 text-lg leading-none">
+          ×
+        </button>
+      </div>
+      <ul class="list-disc pr-4 space-y-1.5 text-slate-100">
+        <li>تطوير صفحة هبوط احترافية لملحمة نصف هَبْرة مع ربط مباشر بالواتساب.</li>
+        <li>تصميم لوحات تفاعلية لعرض الإحصائيات والطلبات بشكل مبسط لأصحاب المتاجر.</li>
+        <li>بناء مواقع خدمات سعودية لربط التجار مع شركات الدفع والتقسيط بطريقة منظمة.</li>
+        <li>تنفيذ أنظمة واجهات (Dashboards) خفيفة تعتمد على Flexbox وتعمل بكفاءة على الجوال واللابتوب.</li>
+        <li>إعداد حملات إعلانية وبوستات جاهزة للإنستغرام والواتساب لعدد من الأنشطة التجارية.</li>
+      </ul>
+      <div class="mt-4 text-[0.75rem] text-slate-300">
+        للتواصل بخصوص تنفيذ أعمال مشابهة:
+        <span class="font-semibold">Ahmed jafari | M5mOsH</span> –
+        جوال: <span dir="ltr">0507190799</span>
+      </div>
+      <div class="mt-3 text-left">
+        <button onclick="closePortfolioModal()"
+                class="px-4 py-1.5 rounded-full border border-slate-600 text-slate-100 text-xs hover:bg-slate-800 transition">
+          إغلاق
+        </button>
+      </div>
+    </div>
+  </div>
 
+  <!-- ========= SCRIPTS ========= -->
   <script>
-    // سنة الفوتر
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // موبايل ناف
-    const navToggle = document.getElementById('navToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    let navOpen = false;
-    function toggleMobileNav() {
-      navOpen = !navOpen;
-      mobileNav.style.maxHeight = navOpen ? mobileNav.scrollHeight + 'px' : '0px';
-    }
-    if (navToggle) {
-      navToggle.addEventListener('click', toggleMobileNav);
-    }
-
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (navOpen) toggleMobileNav();
-    }
-
-    // رقم الملحمة في واتساب
-    function openButcherWhatsApp() {
-      const phone = "966538779110"; // 0538779110 بصيغة دولية
-      const text = encodeURIComponent("السلام عليكم، أود الاستفسار عن لحوم وعروض ملحمة نصف هبرة.");
+    function openWhatsApp() {
+      const phone = "966538779110"; // رقم الملحمة بصيغة دولية
+      const text = encodeURIComponent("السلام عليكم، أود الاستفسار عن لحم بلدي وعروض ملحمة نصف هَبْرة.");
       const url = "https://wa.me/" + phone + "?text=" + text;
       window.open(url, "_blank");
     }
 
-    // ربط النموذج بالواتساب (فعلي)
-    function handleContactSubmit(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const service = document.getElementById('service').value.trim();
-      const msg = document.getElementById('message').value.trim();
-
-      const summary =
-        "طلب جديد من موقع ملحمة نصف هبرة:\n" +
-        "الاسم: " + (name || "-") + "\n" +
-        "الجوال: " + (phone || "-") + "\n" +
-        "نوع الطلب: " + (service || "-") + "\n" +
-        "التفاصيل: " + (msg || "-");
-
-      const phoneWA = "966538779110"; // رقم واتساب الملحمة بصيغة دولية
-      const waUrl = "https://wa.me/" + phoneWA + "?text=" + encodeURIComponent(summary);
-
-      window.open(waUrl, "_blank");
-
-      document.getElementById('formStatus').textContent =
-        "تم فتح واتساب مع تفاصيل الطلب، تأكد من الضغط على إرسال.";
+    function openPortfolioModal() {
+      const modal = document.getElementById('portfolioModal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100');
     }
 
-    // GSAP Animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(".hero-animate", {
-      y: 40,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power3.out"
-    });
-
-    gsap.utils.toArray(".section-animate").forEach((sec, i) => {
-      gsap.from(sec, {
-        scrollTrigger: {
-          trigger: sec,
-          start: "top 80%",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.9,
-        delay: i * 0.05,
-        ease: "power2.out"
-      });
-    });
+    function closePortfolioModal() {
+      const modal = document.getElementById('portfolioModal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100');
+    }
   </script>
 </body>
 </html>
